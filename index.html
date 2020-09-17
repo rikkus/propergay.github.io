@@ -3,13 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+    <script src="blotter.min.js"></script>
+    <script src="channelSplitMaterial.js"></script>
+    <script src="liquidDistortMaterial.js"></script>
     <title>proper.gay</title>
   </head>
-  <body id="body">
-    <div id="wrapper">
-      <h1>Proper gay</h1>
-      <p>This website is proper gay.</p>
-    </div>
+  <body style="background-color: black">
+    <div id="propergay" style="display: block; width: 100%; margin-left: auto; margin-right: auto;"/>
   </body>
+  <script>
+      function dw_getWindowDims() {
+        var doc = document, w = window;
+        var docEl = (doc.compatMode && doc.compatMode === 'CSS1Compat')?
+                doc.documentElement: doc.body;
+
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+
+        // mobile zoomed in?
+        if ( w.innerWidth && width > w.innerWidth ) {
+            width = w.innerWidth;
+            height = w.innerHeight;
+        }
+
+        return {width: width, height: height};
+    }
+    function doText() {
+      var text = new Blotter.Text("proper gay", {
+        family : "serif",
+        size : dw_getWindowDims().width / 6,
+        fill : "#ffeeff",
+        paddingLeft : 80,
+        paddingRight : 80
+      });
+      var material = new Blotter.LiquidDistortMaterial();
+      var blotter = new Blotter(material, { texts : text });
+      var scope = blotter.forText(text);
+      propergay = document.getElementById("propergay");
+      propergay.innerHTML = '';
+      scope.appendTo(propergay);
+    }
+    window.addEventListener("resize", doText);
+    doText();
+  </script>
 </html>
