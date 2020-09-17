@@ -1,0 +1,124 @@
+* { margin: 0; padding: 0; }
+html { height: 100%; font-size: 2.4vw; }
+
+@media all and (min-width:1024px) { html { font-size: 24px; } }
+@media all and (max-width:768px) { html { font-size: 18px; } }
+
+body {
+  font-family: "Charter", "Noto Serif", "Calibri", serif;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+  max-width: 1024px;
+  min-height: 100%;
+
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1;
+  font-feature-settings: 'liga' 1;
+  line-height: 1.6em;
+  padding: 2rem 0 2rem 0;
+}
+
+div#wrapper {
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+}
+
+h1 {
+    /*
+           __________________________________________
+           /Looks like this/
+     */
+    display: block;
+    line-height: 1.1;
+
+    margin-bottom: 2rem;
+    border-top: 2px solid #333;
+
+    padding-top: 0.2em;
+    padding-bottom: 0.15em;
+
+    font-size: 180%;
+    font-style: italic;
+
+    color: #333;
+}
+
+h2 {
+
+  /*
+               L O O K S    L I K E    T H I S
+          ==========================================
+   */
+  display: block;
+  text-align: center;
+
+  font-size: 0.8rem;
+  font-feature-settings: 'case' 1;
+  font-weight: bolder;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 1em;
+  padding-bottom: 0.6em;
+  border-bottom: 4px double #ccc;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+p, li { margin-bottom: 1em; }
+
+ol { counter-reset: mu; } /* hax */
+
+ol li, ul li { margin-left: 2.5rem; list-style: none; }
+
+ol li:before {
+    counter-increment: mu;
+    content: counter(mu);
+    font-size: 1.10rem;
+    position: absolute;
+    margin-left: -2.5rem;
+}
+
+ul li:before {
+    position: absolute;
+    margin-left: -2.5rem;
+}
+
+.quoted {
+
+  /* Stick stuff in a subtle box, with top and bottom borders and a background */
+
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #fcfcfc;
+  font-size: 85%;
+  padding: 1rem 1rem calc(1rem / 2) 1rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  line-height: 1.8em;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(90, 120, 5);
+}
+
+a:hover {
+  background: rgb(205, 235, 205);
+  border-radius: 3px;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+code {
+  font-size: 0.85rem;
+  font-family: "Fira Code", "Menlo", "Consolas", "Andale Mono", fixed;
+  padding: 0 0.2em;
+}
+
